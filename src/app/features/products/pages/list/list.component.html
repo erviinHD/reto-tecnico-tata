@@ -1,5 +1,3 @@
-
-
 <app-dialog [show]="showDialog" subtitle="¿Estás seguro de eliminar el producto {{ productById?.name }}?"
     (confirm)="confirmDelete()" (cancel)="cancelDelete()">
 </app-dialog>
@@ -28,8 +26,8 @@
                 <td> <app-avatar [imgURL]="product.logo" [name]="product.name"></app-avatar></td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }} </td>
-                <td>{{ product.date_release }} </td>
-                <td>{{ product.date_revision }} </td>
+                <td>{{ product.date_release | date:'MM/dd/yyyy'}} </td>
+                <td>{{ product.date_revision| date:'M/dd/yyyy' }} </td>
                 <td class="dropdown-container">
                     <i class="ti ti-dots-vertical dropdown-toggle" (click)="toggleDropdown(product.id, $event)">
                     </i>
