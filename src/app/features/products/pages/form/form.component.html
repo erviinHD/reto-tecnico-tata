@@ -1,0 +1,59 @@
+<button class="button-back mb-1" (click)="goForm('')">
+    <i class="ti ti-chevron-left"></i>
+</button>
+
+<div class="card-form">
+    <div class="center card-header">
+        <h2>
+            {{ isEdit? 'Formulario de Edición' : 'Formulario de Registro' }}
+        </h2>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="sendProduct()">
+        <section class="product-form">
+            <div>
+                <label for="id">ID</label>
+                <input id="id" type="text" formControlName="id" [readOnly]="isEdit" autocomplete="off"
+                    (blur)="checkID(form.get('id')?.value)">
+                <app-error-messages [control]="form.get('id')"></app-error-messages>
+            </div>
+
+            <div>
+                <label for="name">Nombre</label>
+                <input id="name" type="text" formControlName="name" autocomplete="off">
+                <app-error-messages [control]="form.get('name')"></app-error-messages>
+            </div>
+
+            <div>
+                <label for="description">Descripción</label>
+                <input id="description" formControlName="description" autocomplete="off" />
+                <app-error-messages [control]="form.get('description')"></app-error-messages>
+            </div>
+
+            <div>
+                <label for="logo">Logo</label>
+                <input id="logo" type="text" formControlName="logo" autocomplete="off">
+                <app-error-messages [control]="form.get('logo')"></app-error-messages>
+            </div>
+
+            <div>
+                <label for="date_release">Fecha Liberación</label>
+                <input id="date_release" type="date" formControlName="date_release" autocomplete="off">
+                <app-error-messages [control]="form.get('date_release')"></app-error-messages>
+            </div>
+
+            <div>
+                <label for="date_revision">Fecha Revisión</label>
+                <input id="date_revision" type="date" formControlName="date_revision" autocomplete="off">
+                <app-error-messages [control]="form.get('date_revision')"></app-error-messages>
+            </div>
+        </section>
+
+        <footer class="center">
+            <button class="button-secondary mr-3" type="button" (click)="resetForm()" *ngIf="!isEdit">
+                Reiniciar
+            </button>
+            <button class="button-primary mr-3" type="submit" [disabled]="form.invalid">Enviar</button>
+        </footer>
+    </form>
+</div>

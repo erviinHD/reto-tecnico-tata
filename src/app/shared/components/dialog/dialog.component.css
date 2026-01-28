@@ -1,0 +1,27 @@
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 420px;
+  p {
+    color: black;
+    font-weight: 500;
+  }
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}

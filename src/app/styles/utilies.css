@@ -1,0 +1,36 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-between {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.padding-xs {
+  padding: 0.25rem;
+}
+
+.mr-3 {
+  margin: 3rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}
+
+.w-full {
+  width: 100% !important;
+}

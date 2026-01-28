@@ -1,0 +1,11 @@
+<div class="center">
+
+    <img *ngIf="isImageUrl; else initialsTemplate" [src]="imgURL" alt="avatar" class="avatar-img"/>
+
+    <ng-template #initialsTemplate>
+        <div class="avatar-initials center">
+            {{ initials }}
+        </div>
+    </ng-template>
+
+</div>

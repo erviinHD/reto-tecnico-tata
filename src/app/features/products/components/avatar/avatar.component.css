@@ -1,0 +1,14 @@
+.avatar-img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+}
+
+.avatar-initials {
+  background-color: #c1c7d7;
+  border-radius: 100%;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  font-weight: 500;
+}

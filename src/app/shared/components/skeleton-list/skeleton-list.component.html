@@ -1,0 +1,20 @@
+<div class="skeleton-table">
+    <div class="skeleton-row header-row">
+        <div class="skeleton-cell" style="width: 50px;"></div>
+        <div class="skeleton-cell" style="width: 200px;"></div>
+        <div class="skeleton-cell" style="width: 300px;"></div>
+        <div class="skeleton-cell" style="width: 150px;"></div>
+        <div class="skeleton-cell" style="width: 150px;"></div>
+        <div class="skeleton-cell" style="width: 50px;"></div>
+    </div>
+
+    <!-- Repite filas simuladas para contenido -->
+    <div class="skeleton-row" *ngFor="let i of [1,2,3,4,5]">
+        <div class="skeleton-cell" style="width: 50px;"></div>
+        <div class="skeleton-cell" style="width: 200px;"></div>
+        <div class="skeleton-cell" style="width: 300px;"></div>
+        <div class="skeleton-cell" style="width: 150px;"></div>
+        <div class="skeleton-cell" style="width: 150px;"></div>
+        <div class="skeleton-cell" style="width: 50px;"></div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+
+
+<app-dialog [show]="showDialog" subtitle="¿Estás seguro de eliminar el producto {{ productById?.name }}?"
+    (confirm)="confirmDelete()" (cancel)="cancelDelete()">
+</app-dialog>
+
+
+<div class="center-between mb-1">
+    <app-input-search (searchChange)="onSearchChange($event)"></app-input-search>
+    <button class="button-primary " (click)="goForm('new')">
+        Agregar
+    </button>
+</div>
+
+<div class="card">
+    <div style="overflow: auto;">
+        <app-skeleton-list *ngIf="loading"></app-skeleton-list>
+        <table *ngIf="!loading">
+            <tr class="header-row">
+                <th style="text-align: center;" width="15%">Logo</th>
+                <th>Nombre del producto</th>
+                <th>Descripción <i class="ti ti-info-circle"></i></th>
+                <th>Fecha de liberación <i class="ti ti-info-circle"></i></th>
+                <th>Fecha de reestructuración <i class="ti ti-info-circle"></i></th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let product of visibleProducts | filterProducts: searchText">
+                <td> <app-avatar [imgURL]="product.logo" [name]="product.name"></app-avatar></td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }} </td>
+                <td>{{ product.date_release }} </td>
+                <td>{{ product.date_revision }} </td>
+                <td class="dropdown-container">
+                    <i class="ti ti-dots-vertical dropdown-toggle" (click)="toggleDropdown(product.id, $event)">
+                    </i>
+
+                    <ul class="dropdown-menu" *ngIf="openedDropdownId === product.id">
+                        <li (click)="goForm('edit',product.id)">Editar</li>
+                        <li (click)="openDeleteDialog(product)" class="text-danger">Eliminar</li>
+                    </ul>
+                </td>
+
+
+            </tr>
+        </table>
+    </div>
+    <app-pagination [totalItems]="products.length" [itemsPerPage]="itemsPerPage"
+        (itemsPerPageChange)="onItemsPerPageChange($event)">
+    </app-pagination>
+
+</div>
